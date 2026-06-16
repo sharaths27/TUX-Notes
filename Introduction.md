@@ -368,3 +368,188 @@ A system call is a controlled way for a program to request services from the ker
  	Kernel does the work
  	Returns result
  	Switches back to user space
+
+
+**Console**
+
+The console is the system’s primary direct interface (often the “main screen”).
+
+Types:
+Physical console: Monitor + keyboard connected to machine
+Virtual console (Linux): Access with Ctrl + Alt + F1–F6
+
+Think of console as:  The “real” system interface, while terminals are windows inside it
+
+**Terminal**
+
+A terminal is a program that lets you interact with the system using text.
+
+Examples: GNOME Terminal, Konsole, or iTerm2
+
+What it does:
+	 Displays text interface
+	 Takes your keyboard input
+	 Shows output
+Important:
+	 Modern terminals are actually terminal emulators (software, not real hardware)
+
+**TTY (Teletype)**
+
+TTY stands for Teletypewriter (old physical terminals from the 1960s),The term TTY is a relic from the days when people used actual electromechanical typewriters to send data to computers.
+
+Today: It refers to the kernel subsystem that handles input and output. When you press Ctrl+Alt+F3 on Linux, you switch to a "Virtual TTY"—a full-screen text interface managed by the kernel.
+
+In modern Linux:
+TTY means:  A text-based interface device
+
+**Examples:**  /dev/tty1, /dev/tty2 → virtual consoles
+ It represents:  Input/output channel between user and system
+
+**PTS (Pseudo Terminal Slave)**
+
+PTS is a virtual terminal used by terminal emulators, When you open a terminal window inside a graphical desktop (like Ubuntu or macOS) or connect via SSH, you aren't using a "real" hardware TTY.
+Instead, the system creates a PTS. It’s a "fake" TTY that allows graphical applications to behave like old-school text terminals
+
+Example: /dev/pts/0, /dev/pts/1
+What it means:
+ When you open:
+ 	GNOME Terminal
+	 It creates a pseudo terminal pair:
+ 		Master (controlled by terminal app)
+ 		Slave (used like a TTY)
+
+**Shell**
+
+A shell is a program that interprets your commands. The shell lives inside the terminal.
+
+**What it does**:
+	 Reads your input
+	 Executes commands
+	 Talks to the kernel
+
+ Example:
+You type:
+	ls
+ Shell:
+	 Understands it
+	 Calls system functions
+	 Displays result
+
+**Bash (Bourne Again Shell)**
+Bash is just one type of shell
+
+**Why it’s popular:**
+	 Default shell in many Linux systems
+	 Powerful scripting capabilities
+
+**Other shells exist**: sh, zsh, fish
+
+**How They Work Together**
+
+	Hardware/GUI → you open a Terminal Emulator.
+	It connects to a PTS device (/dev/pts/X ).
+	That session runs a Shell (usually Bash).
+	The shell accepts your input, passes it to the Kernel, and displays the result
+
+When you type a command, the data flows through these layers in a specific order:
+
+**Terminal Emulato**r: You type mkdir photos into a window.
+PTS/TTY: The window sends those characters through a PTS (the bridge) to the system.
+Shell (Bash): The Shell receives the characters, realizes you want to make a directory, and executes the mkdir system call.
+Display: The Shell sends the "Success" message back through the PTS, and the Terminal draws the text on your screen.
+
+**Summary**
+	Terminal is the where you type.
+	TTY/PTS is how the data moves.
+	Shell is what understands your commands.
+	Bash is the specific language the shell speaks.
+
+**Quick Commands to Explore**
+tty        	  # shows which terminal device you're on (e.g. /dev/pts/1
+ps -p $$ 	  # shows which shell youʼre using 
+echo $0   	  # prints current shell name
+who        	  # shows who is logged in and on which tty/pts
+
+**In short:**
+Terminal = the window/program you type into.
+Shell = the command interpreter running inside the terminal.
+Bash = the most common shell.
+TTY = old-school physical/virtual terminals (/dev/ttyX ).
+PTS = modern pseudo-terminals for terminal emulators ( /dev/pts/X )
+
+
+The Terminal is the UI window where I type; it handles things like fonts and colors. It communicates with the system through a** PTS **(Pseudo-Terminal) if I'm in a **GUI**, or a **TTY **if I'm at the **system console**. Inside that **terminal**, a **Shell** is running this is** theinterpreter** that actually executes my commands. **Bash** is simply the specific flavor of shell I\'m using, known for its scripting capabilities and ubiquity in Linux.
+
+A **terminal **is the interface I use to interact with the system. If I'm on the machine directly, that's the **console**, backed by **TTY **devices. If I'm using a** terminal emulator (GUI) or SSH**, that's a **PTS device**. Inside the** terminal,** a** shell** runs to interpret my commands, and **Bash** is one of the most common shells.
+
+At the top, we have the **terminal**, the interface I use to interact with the system. If I'm directly on the machine, that's the **console**, backed by **TTY devices**. If I'm using a **terminal emulator or SSH**,that's a **PTS device**. Inside that **terminal**, a** shell** runs to interpret my commands, and** bash** is one of the most common shells.
+
+
+**“everything is a file”**
+
+Linux treats many different things (devices, processes, data, communication) using the same file interface.
+
+**Linux File System Hierarchy Explained**
+The hierarchy starts at the root directory / , and everything branches from there.
+
+**Core Directory Structure**
+
+**Directory**	    **Purpose**
+
+/ 		Root of the file system (everything starts here)
+/bin 		Essential user binaries (commands like ls, cp)
+/sbin 		Essential system binaries (like reboot , fsck)
+/etc 		System-wide configuration files
+/dev 		Device files (e.g., /dev/sda, /dev/null )
+/proc 		Virtual filesystem providing process and kernel info
+/sys 		Interface to kernel (devices, drivers)
+/var 		Variable data (logs, spool files, mail)
+/tmp 		Temporary files (cleared on reboot)
+/home 		User home directories /root Home directory for the root user
+/boot 		Bootloader files (kernel, initrd, grub)
+/lib, /lib64 	Essential shared libraries for /bin and /sbin
+/usr 		User-installed software and libraries (non-essential at boot)
+/opt 		Optional third-party software /media Mount points for external devices USB, DVD
+/mnt 		Temporarily mounted filesystems
+/run 		Runtime data (system boot time, PID files, sockets
+/root		Root user home directory (optional)
+
+**Old Layout**
+
+/bin → 	essential binaries
+/sbin → 	system tools
+/lib → 		libraries
+/usr/bin → 	additional binaries
+/usr/sbin → 	additional system tools
+/usr/lib → 	additional librarie
+
+**New (Merged /usr )**
+
+/bin  → 	symlink to /usr/bin
+/sbin   →	 symlink to /usr/sbin
+/lib   → 	symlink to /usr/lib
+/usr/
+bin/
+sbin/
+lib/
+
+**Important Directories**
+
+/proc **(Virtual filesystem)**
+Not real files — shows kernel and process info
+Example: /proc/cpuinfo , /proc/meminfo ,
+
+/sys **(Kernel Interface)**
+/proc/uptime Info about devices, modules, buses, etc.
+
+/run **(Early boot runtime info)**
+PID files, systemd info, etc. Exists only in RAM, not stored on disk
+
+/boot **(System boot files)**
+Contains  static  files  for  the  boot  loader.  This directory holds only the files which are needed during the boot process
+
+/etc
+Contains configuration files which are local to the machine
+
+$ man hier
+( hier - description of the filesystem hierarchy)
