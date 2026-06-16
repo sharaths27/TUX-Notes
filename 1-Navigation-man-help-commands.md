@@ -47,7 +47,7 @@ Bash Navigation
 
 	Ctrl + Y = Yank (Paste Last Killed Text)
 	Ctrl + L = Clear
-	Ctrl + _ = undo
+	Ctrl + _ = Undo previous editing command (Readline)
 	Ctrl + C = Abort foreground job with SIGINT
 	Ctrl + Z = Stop a foreground job with SIGTSTP
 	
@@ -191,6 +191,14 @@ Output:
 
 	ls - list directory contents
 
+**which — Command Location**
+------------
+Shows path of executable
+Example:
+
+	which ls
+	which gcc
+	
 **type — Command Type Checker**
 ------------
 
@@ -199,20 +207,32 @@ Tells what kind of command it is
 Example:
 
 	type ls  , type cd , type python
+type command  it detects:
+
+	aliases
+	functions
+	builtins
+	executables
+
+Example:
+
+	type cd
+
+works, but:
+
+	which cd
+
+often doesn't.
+
+For shell builtins and aliases, prefer:
+
+	type command
 
 **Output examples:**
 
 ls is aliased to `ls --color=auto`
 cd is a shell builtin
 python is /usr/bin/python
-
-**which — Command Location**
-------------
-Shows path of executable
-Example:
-
-	which ls
-	which gcc
 
 **whereis — Find Binary, Source, Man Page**
 ------------
