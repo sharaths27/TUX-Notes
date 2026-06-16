@@ -524,27 +524,46 @@ These reset on reboot.
 **4) Visual Mental Map of /proc**
 /proc
 ├── cpuinfo        → CPU details
-├── meminfo        → RAM usage
-├── stat           → CPU + system stats
-├── uptime         → system uptime
-├── loadavg        → load average
-├── diskstats      → disk I/O
-├── mounts         → mounted filesystems
-├── net/           → networking
-│   ├── dev
-│   ├── tcp
-│   └── route
-├── sys/           → kernel tuning (DANGEROUS)
-│   ├── vm/
-│   ├── kernel/
-│   └── net/
-├── 1234/          → process with PID 1234
-│   ├── status
-│   ├── stat
-│   ├── fd/
-│   ├── maps
-│   └── io
 
+├── meminfo        → RAM usage
+
+├── stat           → CPU + system stats
+
+├── uptime         → system uptime
+
+├── loadavg        → load average
+
+├── diskstats      → disk I/O
+
+├── mounts         → mounted filesystems
+
+├── net/           → networking
+
+│   ├── dev
+
+│   ├── tcp
+
+│   └── route
+
+├── sys/           → kernel tuning (DANGEROUS)
+
+│   ├── vm/
+
+│   ├── kernel/
+
+│   └── net/
+
+├── 1234/          → process with PID 1234
+
+│   ├── status
+
+│   ├── stat
+
+│   ├── fd/
+
+│   ├── maps
+
+│   └── io
  **Golden Rule of /proc**
 **If you understand** /proc**, you understand Linux internals.**\
 Everything else is just tooling on top.
