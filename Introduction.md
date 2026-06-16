@@ -279,3 +279,92 @@ The Linux kernel is the core, foundational program of the operating system that 
 **5. Security & Access Control**
 	 Ensures programs don’t access unauthorized data
 	 Enforces permissions
+
+**To put the kernel in context, you can think of a Linux machine as having 3 layers:**
+
+**The hardware:** The physical machine—the bottom or base of the system, made up of memory (RAM) and the processor or central processing unit (CPU), as well as input/output (I/O) devices such as storage, networking, and graphics. The CPU performs computations and reads from, and writes to, memory.
+
+**The Linux kernel**: The core of the OS. (See? It`s right in the middle.) Its software residing in memory that tells the CPU what to do
+.
+**User processes**: These are the running programs that the kernel manages. User processes are what collectively make up user space. User processes are also known as just processes. The kernel also allows these processes and servers to communicate with each other (known as inter-process communication, or IPC).
+
+**How It Works (Flow)**
+		 You open an app
+		 App sends request → kernel
+		 Kernel talks to hardware
+		 Hardware responds → kernel → app → you
+
+Everything goes through the kernel.
+
+**Linux Kernel Architecture**
+
+<img width="500" height="442" alt="image" src="https://github.com/user-attachments/assets/102b771d-6902-4039-a7fc-78d80214ec3d" />
+
+<img width="800" height="308" alt="image" src="https://github.com/user-attachments/assets/cb629d10-5d75-446e-b28b-3bef78ca9289" />
+
+**Kernel Space**
+
+The privileged, protected area where the kernel runs. Has direct access to hardware CPU, memory, I/O devices).
+
+**Full access to:**
+	 CPU
+	 Memory
+	 Hardware devices
+
+**Runs critical code:**
+	Device drivers
+	Process scheduler
+	Memory manager
+
+***If something crashes here → the whole system can crash.***
+
+**User Space**
+
+The restricted area where normal programs run. Does not have direct access to hardware or kernel memory
+
+**Apps like:**
+	Browser
+	Text editor
+	Games
+**Limited access:**
+	 Cannot directly touch hardware
+	 Cannot access other programs’ memory
+
+*** If an app crashes → only that app crashes, not the whole system.***
+
+Why Separate Them?
+
+This separation exists for safety and stability:
+
+1. Security
+	Prevents malicious apps from:
+	Accessing hardware directly
+	Reading sensitive memory
+2. Stability
+	Bugs in apps don’t crash the OS
+3. Control
+	Kernel decides who gets resources
+
+**How They Communicate**
+
+User space and kernel space cannot directly access each other.
+They communicate using system calls
+
+**System Calls (The Bridge)**
+A system call is a controlled way for a program to request services from the kernel.
+
+ Example:
+**When you open a file:**
+	 App (user space) → requests file open
+	 System call triggers switch to kernel space
+	 Kernel accesses disk
+	 Returns result to app
+
+**Step-by-Step Flow**
+	 Program runs in user space
+ 	Needs something (file, network, memory)
+ 	Makes a system call
+ 	CPU switches to kernel space
+ 	Kernel does the work
+ 	Returns result
+ 	Switches back to user space
