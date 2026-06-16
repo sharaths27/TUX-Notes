@@ -25,31 +25,35 @@ Bash Navigation
 ------------
 **Cursor Move**
 
-	Ctrl + A = goto start of the line
-	Ctrl + E = goto end of the line
-
-	Alt + F = move forward one word
-	Alt + B = move back  one word
-
-	Ctrl + P = previous command (up arrow key)
-	Ctrl + N = next command( down arrow key)
+| Shortcut | Action |
+| --- | --- |
+| Ctrl + A | goto start of the line |
+| Ctrl + E | goto end of the line |
+| |
+| Alt + F | move forward one word |
+| Alt + B | move back one word |
+| |
+| Ctrl + P | previous command (up arrow key) |
+| Ctrl + N | next command (down arrow key) |
 
 **Cut/Delete line, word, char**
 
-	Ctrl + K = delete to end of the line
-	Ctrl + U = delete to benining of the line
-
-	Ctrl + W = delete one word(left)
-	Alt + D  = delete one word(right)
-
-	Ctrl + D = Deletes character under cursor. 
-	Ctrl + H = Delete Character Left
-
-	Ctrl + Y = Yank (Paste Last Killed Text)
-	Ctrl + L = Clear
-	Ctrl + _ = Undo previous editing command (Readline)
-	Ctrl + C = Abort foreground job with SIGINT
-	Ctrl + Z = Stop a foreground job with SIGTSTP
+| Shortcut | Action |
+| --- | --- |
+| Ctrl + K | Delete to end of the line |
+| Ctrl + U | Delete to beginning of the line |
+| |
+| Ctrl + W | Delete one word (left) |
+| Alt + D  | Delete one word (right) |
+| Ctrl + D | Deletes character under cursor |
+| Ctrl + H | Delete character left |
+| |
+| Ctrl + Y | Yank (Paste last killed text) |
+| |
+| Ctrl + L | Clear screen |
+| Ctrl + _ | Undo previous editing command (Readline) |
+| Ctrl + C | Abort foreground job with SIGINT |
+| Ctrl + Z | Stop a foreground job with SIGTSTP |
 	
 Manual Pages
 ----------------
@@ -287,8 +291,9 @@ In Bash, this is managed mainly by:
 
 **This file is: (~/.bash_history)**
 
-	 • Written when you log out (or shell exits)
-	 • Read when you log in
+	- Written when you log out (or shell exits)
+	-  Bash writes history when the shell exits.
+	-  Interactive shells may also append during runtime depending on configuration.
 
 **Important:**
  • Commands from current session may not appear until you exit or run:
@@ -418,7 +423,7 @@ How it works:
 
 Result: Command runs and is immediately removed from both session and disk history.
 
-	OR  $ echo "discreet"; history -d $((HISTCMD-1))
+	OR  $ echo "discrete"; history -d $((HISTCMD-1))
 
 **Run in a Subshell With History Disabled (maximum stealth )
 (Run in a Subshell Without Recording History)**
