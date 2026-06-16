@@ -1,18 +1,28 @@
 
 Linux Command Line Productivity
+
 ├── Bash Navigation Shortcuts
+
 ├── Command Documentation
+
 │ ├── man
+
 │ ├── info
+
 │ ├── whatis
+
 │ ├── type
+
 │ ├── which
+
 │ └── whereis
+
 ├── Bash History
+
 └── Date Command
 
 Bash Navigation
--------------------
+------------
 **Cursor Move**
 
 	Ctrl + A = goto start of the line
@@ -39,35 +49,8 @@ Bash Navigation
 	Ctrl + L = Clear
 	Ctrl + _ = undo
 	Ctrl + C = Abort foreground job with SIGINT
-	Ctrl + Z = Stop a foreground job with SIGTSTPBash Navigation
-
-**Cursor Move**
-
-	Ctrl + A = goto start of the line
-	Ctrl + E = goto end of the line
-
-	Alt + F = move forward one word
-	Alt + B = move back  one word
-
-	Ctrl + P = previous command (up arrow key)
-	Ctrl + N = next command( down arrow key)
-
-**Cut/Delete line, word, char**
-
-	Ctrl + K = delete to end of the line
-	Ctrl + U = delete to benining of the line
-
-	Ctrl + W = delete one word(left)
-	Alt + D  = delete one word(right)
-
-	Ctrl + D = Deletes character under cursor. 
-
-	Ctrl + L = Clear
-	Ctrl + _ = undo
-	Ctrl + C = Abort foreground job with SIGINT
-	Ctrl + Z = Stop a foreground job with SIGSTP
-
-
+	Ctrl + Z = Stop a foreground job with SIGTSTP
+	
 Manual Pages
 ----------------
 $ man man
@@ -173,6 +156,7 @@ Search by Section
 Useful when you don’t know the command name
 
 **--help — Quick Command Help**
+------------
 Example:
 
 	ls --help
@@ -183,6 +167,7 @@ Faster than man
 Less detailed
 
 **info — GNU Documentation System**
+------------
 More detailed and structured than man
 
 Example:
@@ -192,6 +177,7 @@ Example:
 
 
 **whatis — One-Line Description**
+------------
 
 Shows short description of a command
 
@@ -205,6 +191,7 @@ Output:
 	ls - list directory contents
 
 **type — Command Type Checker**
+------------
 
 Tells what kind of command it is
 
@@ -219,6 +206,7 @@ cd is a shell builtin
 python is /usr/bin/python
 
 **which — Command Location**
+------------
 Shows path of executable
 Example:
 
@@ -226,6 +214,7 @@ Example:
 	which gcc
 
 **whereis — Find Binary, Source, Man Page**
+------------
 Locates command files
 
 Example:
@@ -236,6 +225,7 @@ Output:
 	bash: /bin/bash /usr/share/man/man1/bash.1.gz
 
 **Offline Documentation Files**
+------------
 
 Many programs store docs in:
 
@@ -259,6 +249,7 @@ Example:
 
 
 **History Command**
+------------
 
 Linux keeps a record of commands you’ve typed in the shell (Bash, Zsh, etc.) so you can:
 
@@ -427,7 +418,8 @@ This method doesn’t touch your main shell history at all:
 
 opens previous command in vim/nano.
 
-** date command**
+**date command**
+------------
 
  **options**
  Displays the date and time specified by the given string
