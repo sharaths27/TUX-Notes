@@ -5,15 +5,20 @@ An Operating System (OS) is software that manages hardware resources and provide
 - Linux
 - Windows
 - macOS
+  
 **Responsibilities:**
 - Process management
 - Memory management
 - Storage management
 - Device management
 - Security
+  
 **Process** = Running program
+
 **Thread** = Execution unit inside a process
+
 **Example:**
+
 Chrome
 
   ├── Thread 1
