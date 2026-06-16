@@ -234,9 +234,9 @@ Major Linux Distribution: Slackware, Debian, Ubuntu, Fedora, RHEL, SUSE, Arch, G
 (https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)
 
 **Unix 1969**
+
 ├── BSD FreeBSD, OpenBSD, NetBSD, Darwin/macOS
 └── GNU  Linux Kernel 1991
-
     ├── **Debian 1993**     Ubuntu, Mint, Kali
     ├── **Red Hat 1994**    RHEL, Fedora, CentOS, Rocky, Alma
     ├── **Slackware 1993**	SUSE, openSUSE
