@@ -20,7 +20,6 @@ An Operating System (OS) is software that manages hardware resources and provide
 **Example:**
 
 Chrome
-
   ├── Thread 1
   ├── Thread 2
   └── Thread 3
@@ -324,6 +323,16 @@ The Linux kernel is the core, foundational program of the operating system that 
 		 App sends request → kernel
 		 Kernel talks to hardware
 		 Hardware responds → kernel → app → you
+
+	Applications
+	     ↑
+	Shell
+	     ↑
+	System Calls
+	     ↑
+	Kernel
+	     ↑
+	Hardware
 
 Everything goes through the kernel.
 
