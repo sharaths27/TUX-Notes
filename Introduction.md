@@ -1,5 +1,3 @@
-**Before Linux: The Unix Era (1969–1990) **
-Before Linus Torvalds began his project, the landscape of computing was dominated by proprietary versions of Unix and the growing free software movement. 
 
 **Birth of Unix (1969)**: After AT&T Bell Laboratories pulled out of the Multics project, Ken Thompson and Dennis Ritchie developed Unix. Originally written in assembly, it was rewritten in the C programming language in 1973 to make it portable across different hardware.
 
@@ -12,7 +10,7 @@ Before Linus Torvalds began his project, the landscape of computing was dominate
 **The Invention of Linux (1991)**
 Frustrated by the high cost of commercial Unix (roughly $5,000 at the time) and the limitations of MINIX, Linus Torvalds began writing his own kernel.
 
-**The Announcement: **On August 25, 1991, Torvalds posted a famous message to the  comp.os.minix  newsgroup, stating he was working on a free operating system as "just a hobby, won't be big and professional like gnu".
+**The Announcement:** On August 25, 1991, Torvalds posted a famous message to the  comp.os.minix  newsgroup, stating he was working on a free operating system as "just a hobby, won't be big and professional like gnu".
 First Release: Linux version 0.01 was released on September 17, 1991, with approximately 10,000 lines of code.
 **Adopting the GPL (1992): **In early 1992, Torvalds relicensed the Linux kernel under the GNU General Public License (GPL). This was a turning point, as it allowed the kernel to be combined with existing GNU software, creating a complete, free operating system often called GNU/Linux.
 
@@ -22,7 +20,7 @@ First Release: Linux version 0.01 was released on September 17, 1991, with appro
 1996: The penguin mascot, Tux, was created after Linus Torvalds was reportedly bitten by a penguin at a zoo.
 Late 1990s: Major corporations like IBM and Oracle began supporting Linux, leading to its dominance in servers and supercomputers.
 
-** Birth of Unix (1969)**
+**Birth of Unix (1969)**
 
 The story begins at AT&T Bell Laboratories, where researchers like Ken Thompson and Dennis Ritchie were working.
 
@@ -45,7 +43,7 @@ Simple and modular design
 
 This portability is one of the biggest reasons Unix spread so widely.
 
-** Rise of Unix Variants (1970s–1980s)**
+**Rise of Unix Variants (1970s–1980s)**
 
 Because of legal restrictions, AT&T couldn’t sell Unix commercially at first, so they:
 
@@ -130,7 +128,7 @@ In 1991:
  Torvalds created the Linux kernel
  Combined it with GNU tools
 
-** Result:**
+**Result:**
  A complete, free, Unix-like operating system: GNU/Linux
 
 **Key Insight**
@@ -151,7 +149,7 @@ Linux didn’t replace Unix—it continued its philosophy:
 What he actually built
 Torvalds focused on creating the kernel, which is:
 
-** The core part of an OS**
+**The core part of an OS**
  Manages:
 	 CPU
 	 Memory
@@ -166,3 +164,118 @@ Think of it like this:
 	Unix → The original idea
 	GNU → The tools
 	Linux → The missing core (kernel)
+
+**1993: First Major Distributions**
+Two important projects appeared:
+
+	-  Slackware
+	-  Debian
+
+**What changed here?**
+Before this, using Linux was hard:
+
+	You had to manually compile the kernel
+	Install tools one by one
+	Configure everything yourself
+
+ These early distributions solved that.
+
+**Why they mattered**
+**Slackware**: One of the first usable, complete Linux systems
+**Debian**: Introduced:
+Strong community governance
+Package management system (install software easily)
+
+This made Linux accessible beyond hardcore programmers.
+
+**1994: Linux 1.0 Release**
+Linux kernel version 1.0 was released
+
+**Key capabilities**
+	 Networking support (TCP/IP)
+	 Could run servers
+	 Better memory and process management
+
+**This is when Linux stopped being a “student project” and became a serious operating system**
+
+**1996: Tux the Penguin**
+Linux got its mascot: Tux
+Origin story
+	 Linus Torvalds joked about being bitten by a penguin
+	 He liked penguins → community adopted it
+**Why it matters**
+Symbol of Linux culture:
+ 	Friendly
+	 Fun
+ 	Community-driven
+ Unlike corporate logos, Tux represents open-source spirit.
+
+What is a “Distribution” (Distro)?
+
+A Linux distribution (distro) is:
+A complete operating system built using the Linux kernel + software tools + user interface
+
+**Think of it like this:**
+The Linux kernel alone is just the engine 
+A distribution is the full car:
+	Engine (kernel)
+	Dashboard (UI)
+	Controls (tools)
+	Extras (apps)
+
+**What a distro includes**
+	 Linux kernel
+	 GNU tools (from the GNU Project)
+	 Package manager (to install software)
+	 Desktop environment (GUI, optional)
+	 Pre-installed applications
+
+Major Linux Distribution: Slackware, Debian, Ubuntu, Fedora, RHEL, SUSE, Arch, Gentoo etc..
+(https://upload.wikimedia.org/wikipedia/commons/1/1b/Linux_Distribution_Timeline.svg)
+
+**Unix 1969**
+├── BSD FreeBSD, OpenBSD, NetBSD, Darwin/macOS
+└── GNU  Linux Kernel 1991
+    ├── **Debian 1993**     Ubuntu, Mint, Kali
+    ├── **Red Hat 1994**    RHEL, Fedora, CentOS, Rocky, Alma
+    ├── **Slackware 1993**	SUSE, openSUSE
+    ├── **Arch 2002**		Manjaro, EndeavourOS
+    ├── **Gentoo 2000**	    Funtoo, ChromeOS (inspired)
+    └── **Independent**     Alpine, Void
+
+## Kernel
+
+The kernel is the program that controls everything in a computer and lets applications talk to hardware safely and efficiently.
+
+The Linux kernel is the core, foundational program of the operating system that acts as the direct bridge between computer hardware (CPU, memory, devices) and software applications. It manages system resources, enabling apps to run, and acts as a central mediator, ensuring secure interaction between hardware and software.
+
+<img width="800" height="633" alt="image" src="https://github.com/user-attachments/assets/9a795f03-00de-41a5-9dae-332487a0654c" />
+
+**What the Kernel Actually Does**
+
+**1. Process Management**
+	Handles running programs (called processes)
+	Decides:
+		Which program runs first
+		How long it runs (CPU scheduling)
+
+**2. Memory Management**
+	Controls RAM usage
+	Allocates memory to programs
+	Prevents programs from interfering with each other
+
+**3.  Device Management**
+	Communicates with hardware using drivers
+	Controls:
+		Keyboard
+		Mouse
+		Disk
+		Printer
+
+**4. File System Management**
+	Manages files and directories
+	Handles reading/writing data to storage
+
+**5. Security & Access Control**
+	 Ensures programs don’t access unauthorized data
+	 Enforces permissions
