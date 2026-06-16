@@ -596,5 +596,439 @@ Contains  static  files  for  the  boot  loader.  This directory holds only the 
 /etc
 Contains configuration files which are local to the machine
 
-$ man hier
+	$ man hier
 ( hier - description of the filesystem hierarchy)
+
+**Linux Boot Process**
+
+The Linux Boot Process is the sequence of steps that occurs from the moment a computer is powered on until the user sees the login prompt or desktop.
+
+**Overview**
+
+Power On
+   ↓
+BIOS / UEFI
+   ↓
+Bootloader (GRUB)
+   ↓
+Linux Kernel
+   ↓
+initramfs
+   ↓
+systemd (PID 1)
+   ↓
+System Services
+   ↓
+Login Prompt / Desktop
+
+
+**Step 1: Power On**
+
+When you press the power button:
+
+- CPU starts executing firmware instructions.
+- RAM is initialized.
+- Hardware devices are detected.
+
+The firmware loaded depends on the system:
+
+- BIOS (older systems)
+- UEFI (modern systems)
+
+**Step 2: BIOS / UEFI**
+**BIOS (Basic Input/Output System)**
+
+Traditional firmware responsible for:
+
+- Hardware initialization
+- POST (Power-On Self-Test)
+- Locating a bootable device
+
+**Example:**
+
+- CPU
+- RAM
+- Keyboard
+- Disk
+
+BIOS checks whether all essential hardware is functioning properly.
+
+**UEFI (Unified Extensible Firmware Interface)**
+
+Modern replacement for BIOS.
+
+**Advantages:**
+
+- Faster booting
+- Larger disk support
+- Secure Boot support
+- Graphical interface
+
+Most modern Linux systems use UEFI.
+
+**POST (Power-On Self-Test)**
+
+Before booting, firmware verifies hardware.
+Checks include:
+
+- CPU
+- RAM
+- Keyboard
+- Storage devices
+
+If a critical component fails:
+
+- Beep Codes
+- Error Messages
+- No Boot
+
+The system stops booting.
+
+**Step 3: Locate Boot Device**
+
+Firmware searches configured boot devices.
+
+Example order:
+
+1. SSD
+2. HDD
+3. USB
+4. Network Boot
+
+The first bootable device is selected.
+
+**Step 4: Bootloader**
+
+A bootloader loads the Linux kernel into memory.
+
+The most common Linux bootloader is:
+
+**GRUB **= Grand Unified Bootloader
+
+**Responsibilities:**
+
+- Display boot menu
+- Load Linux kernel
+- Load initramfs
+- Pass kernel parameters
+
+**Example:**
+
+Ubuntu
+Advanced Options
+Memory Test
+
+This menu is displayed by GRUB.
+
+**Why Do We Need a Bootloader?**
+
+The firmware understands only how to start a bootloader.
+The bootloader understands how to start Linux.
+
+Firmware
+   ↓
+Bootloader
+   ↓
+Linux Kernel
+
+**GRUB Configuration**
+
+Important file:
+	/etc/default/grub
+
+Generate new configuration:
+	sudo update-grub
+
+Common uses:
+
+- Change boot timeout
+- Set default OS
+- Add kernel parameters
+
+**Step 5: Load Linux Kernel**
+
+GRUB loads the Linux kernel into memory.
+
+Kernel file usually:
+
+	/boot/vmlinuz
+
+The kernel is compressed.
+
+GRUB:
+
+- Copies kernel into RAM
+- Passes boot parameters
+- Transfers control to the kernel
+
+At this point Linux starts executing.
+
+**What Does the Kernel Do First?**
+
+The kernel initializes:
+
+- CPU management
+- Memory management
+- Device drivers
+- Interrupt handling
+- Scheduler
+
+The kernel begins preparing the system for user-space processes.
+
+**Step 6: initramfs**
+
+Before accessing the real root filesystem, Linux uses:
+
+**initramfs**
+	initramfs = Initial RAM Filesystem
+
+Stored in:
+	/boot/initramfs-<version-1>.img
+or
+	/boot/initrd.img-<version-1>
+
+**Why is initramfs Needed?**
+
+At boot time, the kernel may not yet know:
+
+- Disk controller drivers
+- Filesystem drivers
+- RAID configuration
+- LVM configuration
+
+initramfs provides temporary tools and drivers.
+
+Kernel
+   ↓
+initramfs
+   ↓
+Real Root Filesystem
+
+**Tasks Performed by initramfs**
+**Load Drivers**
+
+Examples:
+
+	NVMe Driver
+	SATA Driver
+	USB Driver
+
+**Locate Root Filesystem**
+
+Example:
+
+	/
+
+The kernel must find where the root filesystem exists.
+
+**Mount Root Filesystem**
+
+Once located:
+
+	SSD
+	   ↓
+	Root Filesystem
+
+is mounted.
+
+**Step 7: Start systemd**
+
+After mounting the root filesystem:
+
+The kernel launches the first userspace process.
+
+	PID = 1
+
+This process is:
+
+	systemd
+
+**Why PID 1 Is Special**
+
+Every other process ultimately descends from PID 1.
+
+Example:
+
+	systemd (PID 1)
+	|
+	├── sshd
+	├── nginx
+	├── docker
+	└── bash
+
+If PID 1 fails, the system cannot operate normally.
+
+**What is systemd?**
+
+systemd is the modern Linux initialization system.
+
+
+Responsibilities:
+
+- Start services
+- Manage daemons
+- Handle logging
+- Manage dependencies
+- Manage targets (runlevels)
+
+**Traditional init vs systemd**
+
+| init               | systemd              |
+| ------------------ | -------------------- |
+| Sequential startup | Parallel startup     |
+| Slower             | Faster               |
+| Simpler            | More features        |
+| Legacy systems     | Modern Linux systems |
+
+Most distributions now use systemd.
+
+**Step 8: Start System Services**
+
+systemd starts required services.
+
+Examples:
+
+	Network Manager
+	SSH Server
+	Cron
+	Docker
+	Bluetooth
+	Display Manager
+
+These services run as background processes (daemons).
+
+**Service Dependencies**
+
+Some services require others first.
+
+Example:
+
+	Network
+	   ↓
+	DNS
+	   ↓
+	Web Server
+
+systemd resolves dependencies automatically.
+
+**Step 9: Reach Target**
+
+A target represents a system state.
+
+Examples:
+Multi-User Target
+
+	Command Line Environment
+
+Equivalent to old runlevel 3.
+
+Graphical Target
+
+	Desktop Environment
+
+Equivalent to old runlevel 5.
+
+View Current Target
+
+	systemctl get-default
+
+Example output:
+
+	graphical.target
+Change Default Target
+
+**Command:**
+
+	sudo systemctl set-default multi-user.target
+
+or
+
+	sudo systemctl set-default graphical.target
+
+**Step 10: Login Screen**
+
+If graphical mode:
+
+	GDM
+	SDDM
+	LightDM
+
+displays a login screen.
+
+If terminal mode:
+
+	login:
+
+prompt appears.
+
+**User Login**
+
+After successful authentication:
+
+	Username
+	Password
+
+Linux starts:
+
+	Shell
+
+or
+
+	Desktop Session
+
+The system is now ready for use.
+
+Boot Process Example
+
+Suppose you power on an Ubuntu machine.
+
+	Power Button
+		  ↓
+	UEFI
+		  ↓
+	GRUB
+		  ↓
+	Linux Kernel
+		  ↓
+	initramfs
+		  ↓
+	Root Filesystem Mounted
+		  ↓
+	systemd (PID 1)
+		  ↓
+	Network + SSH + Docker
+		  ↓
+	Graphical Login Screen
+		  ↓
+	Desktop
+
+***Commands***
+
+Show Current Kernel
+
+	uname -r
+View Boot Messages
+
+	dmesg
+
+View Boot Logs
+
+	journalctl -b
+
+Show Failed Services
+
+	systemctl --failed
+
+Show Running Services
+
+	systemctl list-units --type=service
+
+Check Boot Time
+
+	systemd-analyze
+
+Example:
+
+	Startup finished in:
+	2.5s (kernel)
+	4.1s (userspace)
