@@ -91,10 +91,10 @@ Search by Section
 **Navigation**
 
  	arrow keys
- 	spacebar 	 = next page
+ 	spacebar = next page
  	b 		 = previous page
  	q 		 = quit
- 	g       		 = Go to Start
+ 	g        = Go to Start
  	G  		 = Go to End
 
 **Search**
