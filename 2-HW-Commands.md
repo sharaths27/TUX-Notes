@@ -1,31 +1,29 @@
-﻿# **Core Linux Hardware Commands** 
-# **How You Should Learn These (Best Path)**
-### **Beginner**
+## **Core Linux Hardware Commands** 
+
+**How You Should Learn These (Best Path)**
+
+ **Beginner**
 uname, lsblk, free, df, top, ip a, lspci, lsusb
-### **Intermediate**
+
+ **Intermediate**
 lshw, dmidecode, iostat, sensors, ethtool, dmesg
-### **Advanced**
+
+ **Advanced**
 perf, cpupower, udevadm, setpci, modprobe
-# ` `**Important Tip**
+
+**Important Tip**
 **80% of real Linux hardware work is done using just:**
 
-lscpu
+	lscpu
+	lsblk
+	free
+	df
+	ip a
+	lspci
+	lsusb
+	dmesg
 
-lsblk
-
-free
-
-df
-
-ip a
-
-lspci
-
-lsusb
-
-dmesg
-
-## **System & CPU Information**
+ **System & CPU Information**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -37,7 +35,7 @@ dmesg
 |htop|Better interactive top (if installed)|
 |uptime|Load average|
 |mpstat|Per-CPU statistics|
-## **Memory (RAM & Swap)**
+**Memory (RAM & Swap)**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -46,7 +44,8 @@ dmesg
 |cat /proc/meminfo|Detailed memory info|
 |swapon --show|Active swap|
 |top / htop|Memory usage by process|
-## **Disk & Storage**
+ 
+ **Disk & Storage**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -62,7 +61,8 @@ dmesg
 
 df = filesystem usage\
 du = actual directory/file usage 
-## **Filesystems**
+
+**Filesystems**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -72,7 +72,8 @@ du = actual directory/file usage
 |fsck|Filesystem check|
 |tune2fs|ext filesystem tuning|
 |findmnt|Mounted FS tree|
-## **PCI / USB Devices**
+
+**PCI / USB Devices**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -81,7 +82,8 @@ du = actual directory/file usage
 |lsusb -t|USB device tree|
 |udevadm info|Device manager info|
 |dmesg|Hardware detection logs|
-## **GPU / Graphics**
+
+**GPU / Graphics**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -90,7 +92,8 @@ du = actual directory/file usage
 |nvidia-smi|NVIDIA GPU stats|
 |vainfo|Video acceleration|
 |xrandr|Display info|
-## ` `**Network Hardware**
+
+**Network Hardware**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -101,7 +104,8 @@ du = actual directory/file usage
 |nmcli|NetworkManager|
 |iwconfig|Wireless info|
 |iw dev|Wi-Fi devices|
-## **Audio Hardware**
+
+**Audio Hardware**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -109,7 +113,8 @@ du = actual directory/file usage
 |arecord -l|Audio recording devices|
 |amixer|ALSA mixer|
 |pactl list|PulseAudio devices|
-## ` `**Power & Battery**
+
+**Power & Battery**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -117,14 +122,16 @@ du = actual directory/file usage
 |acpi|Battery & thermal info|
 |powertop|Power usage|
 |tlp-stat|Power management|
-## ` `**Sensors & Temperature**
+
+**Sensors & Temperature**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
 |sensors|CPU/GPU temps|
 |watch sensors|Live monitoring|
 |thermal\_zone\*|Kernel thermal data|
-## ` `**Kernel & Hardware Logs**
+
+**Kernel & Hardware Logs**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -133,7 +140,8 @@ du = actual directory/file usage
 |lsmod|Loaded kernel modules|
 |modprobe|Load module|
 |modinfo|Module info|
-## ` `**Benchmarking & Diagnostics**
+
+**Benchmarking & Diagnostics**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -142,7 +150,8 @@ du = actual directory/file usage
 |iotop|Disk usage by process|
 |watch|Run command repeatedly|
 |perf|Performance analysis|
-## **Low-Level Hardware Access (Advanced)**
+
+**Low-Level Hardware Access (Advanced)**
 
 |**Command**|**Purpose**|
 | :-: | :-: |
@@ -152,9 +161,7 @@ du = actual directory/file usage
 |dmidecode|BIOS/firmware info|
 |cpupower|CPU frequency control|
 
-
-
-## **Deep Hardware Enumeration (Rare but Legit)**
+**Deep Hardware Enumeration (Rare but Legit)**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -163,7 +170,8 @@ du = actual directory/file usage
 |hwloc-ls|Hardware topology|
 |numactl --hardware|NUMA layout|
 |lsipc|Shared memory / IPC|
-## **CPU & Power Control (Advanced)**
+
+**CPU & Power Control (Advanced)**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -172,7 +180,8 @@ du = actual directory/file usage
 |turbostat|Intel CPU power stats|
 |rdmsr / wrmsr|CPU registers|
 |x86\_energy\_perf\_policy|Intel power tuning|
-## **Storage & I/O (Advanced / Enterprise)**
+
+**Storage & I/O (Advanced / Enterprise)**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -184,7 +193,8 @@ du = actual directory/file usage
 |losetup|Loop devices|
 |cryptsetup|Disk encryption|
 |multipath -ll|SAN multipathing|
-## ` `**Network Hardware (Low-Level)**
+
+**Network Hardware (Low-Level)**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -193,14 +203,16 @@ du = actual directory/file usage
 |bridge|Bridge devices|
 |devlink|NIC firmware control|
 |rfkill|Enable/disable radios|
-## ` `**Audio / Media (Extra)**
+
+**Audio / Media (Extra)**
 
 |**Command**|**Use**|
 | :-: | :-: |
 |speaker-test|Test speakers|
 |pw-cli|PipeWire control|
 |pw-top|Audio performance|
-## **Firmware, BIOS & Boot**
+
+**Firmware, BIOS & Boot**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -208,7 +220,8 @@ du = actual directory/file usage
 |fwupdmgr|Firmware updates|
 |bootctl|systemd-boot control|
 |mokutil|Secure Boot keys|
-## ` `**Kernel Internals & Debugging**
+
+**Kernel Internals & Debugging**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -217,7 +230,8 @@ du = actual directory/file usage
 |bpftrace|eBPF analysis|
 |bpftool|eBPF control|
 |perf stat|Performance counters|
-## ` `**Embedded / Niche Hardware**
+
+**Embedded / Niche Hardware**
 
 |**Command**|**Use**|
 | :-: | :-: |
@@ -234,17 +248,17 @@ du = actual directory/file usage
 - combined with tools like cat, less, grep, watch, awk
 
 Below is the **most complete** *useful*** /proc **reference**—everything you’ll realistically need, from beginner → kernel-nerd.
-# **/proc — Complete Useful Reference**
-## ` `**How You Read /proc**
-cat /proc/file
 
-less /proc/file
+**/proc — Complete Useful Reference**
+**How You Read /proc**
 
-grep something /proc/file
-
-watch cat /proc/file
-# **CPU Information**
-### **Global CPU**
+	cat /proc/file
+	less /proc/file
+	grep something /proc/file
+	watch cat /proc/file
+	
+### **CPU Information**
+ **Global CPU**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -254,13 +268,14 @@ watch cat /proc/file
 |/proc/uptime|System uptime|
 |/proc/interrupts|IRQ usage per CPU|
 |/proc/softirqs|Soft IRQ stats|
-### **Per-CPU**
-/proc/stat
 
-/proc/irq/\*
+**Per-CPU**
 
-/proc/sys/kernel/sched\*
-# ` `**Memory & Swap**
+  /proc/stat
+  /proc/irq/\*
+  /proc/sys/kernel/sched\*
+
+**Memory & Swap**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -271,12 +286,13 @@ watch cat /proc/file
 |/proc/pagetypeinfo|Page allocation|
 |/proc/slabinfo|Kernel slab cache|
 
-🔥 **Most important**:
-
-/proc/meminfo
-
-/proc/vmstat
-# **Disk & Filesystems**
+ **Most important**:
+ 
+	/proc/meminfo
+	/proc/vmstat
+	
+	
+ **Disk & Filesystems**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -286,8 +302,10 @@ watch cat /proc/file
 |/proc/filesystems|Supported FS|
 |/proc/diskstats|Disk I/O stats|
 |/proc/sys/fs/\*|FS kernel tuning|
-# ` `**Network**
-### **Core Network Info**
+
+###**Network**
+
+**Core Network Info**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -300,12 +318,12 @@ watch cat /proc/file
 |/proc/net/route|Routing table|
 |/proc/net/arp|ARP cache|
 
-🔥 Replacement for old tools:
-
-cat /proc/net/dev
-
-cat /proc/net/tcp
-# ` `**Hardware & Devices**
+ Replacement for old tools:
+ 
+	cat /proc/net/dev
+	cat /proc/net/tcp
+	
+###**Hardware & Devices**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -314,7 +332,8 @@ cat /proc/net/tcp
 |/proc/iomem|Memory map|
 |/proc/dma|DMA channels|
 |/proc/driver/\*|Driver info|
-# ` `**Kernel & System**
+
+**Kernel & System**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -325,10 +344,10 @@ cat /proc/net/tcp
 |/proc/locks|File locks|
 |/proc/timer\_list|Kernel timers|
 |/proc/sysrq-trigger|Magic SysRq|
-# **Process-Specific (/proc/PID/)**
+ **Process-Specific (/proc/PID/)**
 Each running process has a directory:
 
-/proc/1234/
+	/proc/1234/
 ### **Most Important Files**
 
 |**Path**|**Meaning**|
@@ -346,18 +365,20 @@ Each running process has a directory:
 
 **Top 3 you’ll use constantly**:
 
-/proc/PID/status
+	/proc/PID/status
+	/proc/PID/fd/
+	` `/proc/PID/cmdline
 
-/proc/PID/fd/
+**Threads**
 
-` `/proc/PID/cmdline
-# ` `**Threads**
-/proc/PID/task/TID/
+	/proc/PID/task/TID/
 
 Same files as /proc/PID/, but per-thread.
-# **Kernel Tuning (/proc/sys)**
+
+**Kernel Tuning (/proc/sys)**
 This is where **runtime kernel tuning** lives.
-### **Popular Ones**
+
+**Popular Ones**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -372,7 +393,8 @@ Change values (temporary):
 echo 10 > /proc/sys/vm/swappiness
 
 Permanent → /etc/sysctl.conf
-# ` `**Performance & Debug**
+
+**Performance & Debug**
 
 |**Path**|**Meaning**|
 | :-: | :-: |
@@ -380,186 +402,160 @@ Permanent → /etc/sysctl.conf
 |/proc/schedstat|Scheduler stats|
 |/proc/latency\_stats|Kernel latency|
 |/proc/zoneinfo|Memory zones|
-# ` `**Most Useful /proc Cheat Sheet**
-### **Hardware**
-/proc/cpuinfo
 
-/proc/meminfo
+###**Most Useful /proc Cheat Sheet**
 
-/proc/diskstats
+**Hardware**
 
-/proc/partitions
+	/proc/cpuinfo
+	/proc/meminfo
+	/proc/diskstats
+	/proc/partitions
+	/proc/iomem
+	
+ **Performance**
+ 
+	/proc/stat
+	/proc/loadavg
+	/proc/uptime
+	/proc/vmstat
+	
 
-/proc/iomem
-### **Performance**
-/proc/stat
+**Networking**
 
-/proc/loadavg
+	/proc/net/dev
+	/proc/net/tcp
+	/proc/net/route
+	
+**Processes**
 
-/proc/uptime
+	/proc/PID/status
+	/proc/PID/fd
+	/proc/PID/maps
 
-/proc/vmstat
-### **Networking**
-/proc/net/dev
+**Important Notes**
 
-/proc/net/tcp
+	- /proc is **generated on the fly** (no real files)
+	- Format **can change** between kernels
+	- Some files are **root-only**
+	- Writing to /proc/sys/\* changes live kernel behavior
 
-/proc/net/route
-### **Processes**
-/proc/PID/status
+###**1) Real Troubleshooting Using /proc**
+ 
+ **High CPU usage**
+ 
+	cat /proc/loadavg
+	cat /proc/stat
+	cat /proc/interrupts
+	Find culprit:
+	for p in /proc/[0-9]\*; do
+	`  `awk '{print $1,$14+$15}' $p/stat 2>/dev/null
+	done | sort -k2 -nr | head
 
-/proc/PID/fd
+**Memory leak**
 
-/proc/PID/maps
-# **Important Notes**
-- /proc is **generated on the fly** (no real files)
-- Format **can change** between kernels
-- Some files are **root-only**
-- Writing to /proc/sys/\* changes live kernel behavior
+	cat /proc/meminfo
+	cat /proc/vmstat
+	Per process:
+	grep -H VmRSS /proc/\*/status | sort -k2 -nr | head
+	
+**Disk I/O bottleneck**
 
-# **1) Real Troubleshooting Using /proc**
-### ` `**High CPU usage**
-cat /proc/loadavg
+	cat /proc/diskstats
+	cat /proc/pressure/io
+	Per process:
+	cat /proc/PID/io
 
-cat /proc/stat
+**Network issue**
 
-cat /proc/interrupts
+	cat /proc/net/dev
+	cat /proc/net/tcp
+	cat /proc/net/route
 
-Find culprit:
-
-for p in /proc/[0-9]\*; do
-
-`  `awk '{print $1,$14+$15}' $p/stat 2>/dev/null
-
-done | sort -k2 -nr | head
-### ` `**Memory leak**
-cat /proc/meminfo
-
-cat /proc/vmstat
-
-Per process:
-
-grep -H VmRSS /proc/\*/status | sort -k2 -nr | head
-### ` `**Disk I/O bottleneck**
-cat /proc/diskstats
-
-cat /proc/pressure/io
-
-Per process:
-
-cat /proc/PID/io
-### **Network issue**
-cat /proc/net/dev
-
-cat /proc/net/tcp
-
-cat /proc/net/route
-# ` `**2) How top, free, ps REALLY Work**
+###**2) How top, free, ps REALLY Work**
 Linux tools are basically **pretty printers for** /proc.
-### **free**
+ **free**
 Reads:
 
-/proc/meminfo
-### **uptime**
+	/proc/meminfo
+ **uptime**
 Reads:
 
-/proc/loadavg
+	/proc/loadavg
+	/proc/uptime
 
-/proc/uptime
-### **ps**
+**ps**
 Reads:
 
-/proc/PID/stat
+	/proc/PID/stat
+	/proc/PID/status
+	/proc/PID/cmdline
 
-/proc/PID/status
-
-/proc/PID/cmdline
-### **top**
+**top**
 Reads:
 
-/proc/stat
-
-/proc/loadavg
-
-/proc/meminfo
-
-/proc/PID/\*
+	/proc/stat
+	/proc/loadavg
+	/proc/meminfo
+	/proc/PID/\*
 
 ` `If /proc breaks, **all these tools lie or fail**.
-# **3) Safe vs Dangerous /proc Writes (VERY IMPORTANT)**
-## **Generally Safe (Temporary tuning)**
-echo 10 > /proc/sys/vm/swappiness
 
-echo 1 > /proc/sys/net/ipv4/ip\_forward
-
-echo myhost > /proc/sys/kernel/hostname
+###**3) Safe vs Dangerous /proc Writes (VERY IMPORTANT)**
+ **Generally Safe (Temporary tuning)**
+ 
+	echo 10 > /proc/sys/vm/swappiness
+	echo 1 > /proc/sys/net/ipv4/ip\_forward
+	echo myhost > /proc/sys/kernel/hostname
 
 These reset on reboot.
-## ` `**Dangerous (Can freeze or crash system)**
-echo 1 > /proc/sys/kernel/sysrq
 
-echo c > /proc/sysrq-trigger     # instant kernel panic
+**Dangerous (Can freeze or crash system)**
 
-echo 0 > /proc/sys/kernel/panic
-
-echo 3 > /proc/sys/vm/drop\_caches   # can kill performance
+	echo 1 > /proc/sys/kernel/sysrq
+	echo c > /proc/sysrq-trigger     # instant kernel panic
+	echo 0 > /proc/sys/kernel/panic
+	echo 3 > /proc/sys/vm/drop\_caches   # can kill performance
 
 ` `Rule:
 
-**Never write to** /proc **unless you know EXACTLY what it does**
-# ` `**4) Visual Mental Map of /proc**
+	**Never write to** /proc **unless you know EXACTLY what it does**
+
+**4) Visual Mental Map of /proc**
 /proc
-
 ├── cpuinfo        → CPU details
-
 ├── meminfo        → RAM usage
-
 ├── stat           → CPU + system stats
-
 ├── uptime         → system uptime
-
 ├── loadavg        → load average
-
 ├── diskstats      → disk I/O
-
 ├── mounts         → mounted filesystems
-
 ├── net/           → networking
-
 │   ├── dev
-
 │   ├── tcp
-
 │   └── route
-
 ├── sys/           → kernel tuning (DANGEROUS)
-
 │   ├── vm/
-
 │   ├── kernel/
-
 │   └── net/
-
 ├── 1234/          → process with PID 1234
-
 │   ├── status
-
 │   ├── stat
-
 │   ├── fd/
-
 │   ├── maps
-
 │   └── io
-# **Golden Rule of /proc**
+
+ **Golden Rule of /proc**
 **If you understand** /proc**, you understand Linux internals.**\
 Everything else is just tooling on top.
-# **1 /proc/PID/status — COMPLETE DEEP DIVE**
+
+ **1 /proc/PID/status — COMPLETE DEEP DIVE**
 Pick any running PID:
 
-cat /proc/$$/status
-### ` `**Most Important Fields (you *must* know)**
-#### ` `**Identity**
+	cat /proc/$$/status
+	
+###**Most Important Fields (you *must* know)**
+**Identity**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -567,7 +563,8 @@ cat /proc/$$/status
 |Pid|Process ID|
 |PPid|Parent PID|
 |State|R=run, S=sleep, D=IO wait, Z=zombie|
-#### ` `**Memory (VERY IMPORTANT)**
+
+#### **Memory (VERY IMPORTANT)**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -577,8 +574,9 @@ cat /proc/$$/status
 |RssFile|File-backed memory|
 |RssShmem|Shared memory|
 
-` `**Memory leak?** Watch VmRSS, not VmSize.
-#### ` `**Security**
+**Memory leak?** Watch VmRSS, not VmSize.
+
+#### **Security**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -586,7 +584,7 @@ cat /proc/$$/status
 |Gid|Group IDs|
 |CapEff|Linux capabilities|
 |Seccomp|Syscall filtering|
-#### ` `**Threads**
+#### **Threads**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -594,10 +592,12 @@ cat /proc/$$/status
 |voluntary\_ctxt\_switches|Yielding CPU|
 |nonvoluntary\_ctxt\_switches|Preempted|
 
-` `High context switches = contention or I/O wait.
-# **2 /proc/meminfo — MEMORY FIELD BY FIELD**
-cat /proc/meminfo
-### ` `**Fields You MUST Understand**
+High context switches = contention or I/O wait.
+**2 /proc/meminfo — MEMORY FIELD BY FIELD**
+
+	cat /proc/meminfo
+	
+### **Fields You MUST Understand**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -609,9 +609,9 @@ cat /proc/meminfo
 |SwapTotal|Swap size|
 |SwapFree|Free swap|
 
-` `**Ignore** MemFree\
-` `**Use** MemAvailable to judge memory pressure
-### ` `**Advanced (Still Important)**
+**Ignore** MemFree
+**Use** MemAvailable to judge memory pressure
+### **Advanced (Still Important)**
 
 |**Field**|**Meaning**|
 | :-: | :-: |
@@ -620,90 +620,97 @@ cat /proc/meminfo
 |Slab|Kernel objects|
 |PageTables|Page table memory|
 |AnonPages|Anonymous memory|
-# **3 /proc/stat — CPU MATH (THIS IS GOLD)**
-cat /proc/stat
+### **3 /proc/stat — CPU MATH (THIS IS GOLD)**
+
+	cat /proc/stat
 ### **CPU line format:**
+
 cpu  user nice system idle iowait irq softirq steal guest guest\_nice
-### **Example:**
-cpu  4705 0 2255 226255 367 0 45 0 0 0
-### ` `**Calculate CPU Usage Manually**
-prev=$(head -n1 /proc/stat)
+**Example:**
 
-sleep 1
+	cpu  4705 0 2255 226255 367 0 45 0 0 0
 
-cur=$(head -n1 /proc/stat)
+**Calculate CPU Usage Manually**
 
-CPU Usage formula:
+	prev=$(head -n1 /proc/stat)
+	sleep 1
+	cur=$(head -n1 /proc/stat)
+	CPU Usage formula:
+	usage = 100 × (delta\_total - delta\_idle) / delta\_total
 
-usage = 100 × (delta\_total - delta\_idle) / delta\_total
+`This is **exactly how** top **works**.
+ **5 Writing SAFE sysctl Values (DO THIS CAREFULLY)**
+### **Common SAFE Tunings**
 
-` `This is **exactly how** top **works**.
-# **5 Writing SAFE sysctl Values (DO THIS CAREFULLY)**
-### ` `**Common SAFE Tunings**
 #### **Swap behavior**
-echo 10 > /proc/sys/vm/swappiness
+
+	echo 10 > /proc/sys/vm/swappiness
 #### **Enable routing**
-echo 1 > /proc/sys/net/ipv4/ip\_forward
+
+	echo 1 > /proc/sys/net/ipv4/ip\_forward
 #### **File descriptors**
-echo 100000 > /proc/sys/fs/file-max
-### ` `**Correct Way (recommended)**
-sysctl vm.swappiness=10
 
-sysctl net.ipv4.ip\_forward=1
+	echo 100000 > /proc/sys/fs/file-max
+### **Correct Way (recommended)**
 
-Permanent:
+	sysctl vm.swappiness=10
+	sysctl net.ipv4.ip\_forward=1
 
-/etc/sysctl.conf
+**Permanent:**
 
-/etc/sysctl.d/\*.conf
-### ` `**NEVER TOUCH unless you KNOW**
-kernel.sysrq
+	/etc/sysctl.conf
+	/etc/sysctl.d/\*.conf
 
-kernel.panic
+### **NEVER TOUCH unless you KNOW**
 
-vm.drop\_caches
-# **5 Rebuild top MANUALLY Using /proc**
-### **Step 1: System CPU**
-cat /proc/stat
-### **Step 2: Load**
-cat /proc/loadavg
-### **Step 3: Memory**
-grep -E 'MemTotal|MemAvailable' /proc/meminfo
-### **Step 4: Per-process CPU (RAW)**
-awk '{print $1,$14+$15}' /proc/[0-9]\*/stat 2>/dev/null | sort -k2 -nr | head
-### **Step 5: Per-process Memory**
-grep -H VmRSS /proc/[0-9]\*/status | sort -k2 -nr | head
+	kernel.sysrq
+	kernel.panic
+	vm.drop\_caches
+	
+### **5 Rebuild top MANUALLY Using /proc**
+**Step 1: System CPU**
 
-` `Congrats — you just rebuilt **80% of** top.
-# ` `**Mental Model (Remember This)**
-- /proc = **kernel truth**
-- Tools = **pretty printers**
-- If tools disagree → /proc wins
+	cat /proc/stat
+ **Step 2: Load**
+ 
+	cat /proc/loadavg
+ **Step 3: Memory**
+ 
+	grep -E 'MemTotal|MemAvailable' /proc/meminfo
+ **Step 4: Per-process CPU (RAW)**
+ 
+	awk '{print $1,$14+$15}' /proc/[0-9]\*/stat 2>/dev/null | sort -k2 -nr | head
+ **Step 5: Per-process Memory**
+ 
+	grep -H VmRSS /proc/[0-9]\*/status | sort -k2 -nr | head
+
+
+###**Mental Model (Remember This)**
+
+	- /proc = **kernel truth**
+	- Tools = **pretty printers**
+	- If tools disagree → /proc wins
 
 **CPU Vulnerabilities**
 
-lscpu | grep Vulnerability\
-\
-or\
-\
-cat /sys/devices/system/cpu/vulnerabilities/\*
+	lscpu | grep Vulnerability\
+	or
+	cat /sys/devices/system/cpu/vulnerabilities/\*
 
 
+**Memory Hardware**
 
+	dmidecode -t memory\
+Shows:
 
+	DIMM slots
+	speed
+	manufacturer
 
-**Memory Hardware**\
-dmidecode -t memory\
-\
-Shows:\
-\
-DIMM slots\
-speed\
-manufacturer
+**BIOS**
 
-**BIOS**\
-`	`dmidecode -t bios\
-\
-\
-**Motherboard**\
-`	`dmidecode -t baseboard
+	dmidecode -t bios
+
+**Motherboard**
+
+	dmidecode -t baseboard
