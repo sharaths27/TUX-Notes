@@ -1002,6 +1002,44 @@ Suppose you power on an Ubuntu machine.
 		  ↓
 	Desktop
 
+
+**What happens when Linux boots?**
+
+Power On
+		→ BIOS/UEFI
+		→ GRUB
+		→ Kernel
+		→ initramfs
+		→ systemd
+		→ Services
+		→ Login
+
+**What is GRUB?**
+
+GRUB is a bootloader that loads the Linux kernel and initramfs into memory.
+
+**What is initramfs?**
+
+A temporary root filesystem loaded into RAM that provides drivers and tools needed to mount the real root filesystem.
+
+**Why is systemd PID 1?**
+
+The kernel starts systemd as the first userspace process. All other processes are descendants of PID 1.
+
+**Difference Between BIOS and UEFI?**
+| BIOS             | UEFI                        |
+| ---------------- | --------------------------- |
+| Older firmware   | Modern firmware             |
+| MBR-based        | GPT support                 |
+| Limited features | Secure Boot, faster startup |
+| Text-based       | Can support GUI             |
+
+
+**What does PID 1 do?**
+
+PID 1 (systemd) initializes the system, starts services, manages daemons, and acts as the ancestor of all processes.
+
+
 ***Commands***
 
 Show Current Kernel
