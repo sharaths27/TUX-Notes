@@ -496,42 +496,42 @@ The hierarchy starts at the root directory / , and everything branches from ther
 
 **Directory**	    **Purpose**
 
-/ 		Root of the file system (everything starts here)
-/bin 		Essential user binaries (commands like ls, cp)
-/sbin 		Essential system binaries (like reboot , fsck)
-/etc 		System-wide configuration files
-/dev 		Device files (e.g., /dev/sda, /dev/null )
-/proc 		Virtual filesystem providing process and kernel info
-/sys 		Interface to kernel (devices, drivers)
-/var 		Variable data (logs, spool files, mail)
-/tmp 		Temporary files (cleared on reboot)
-/home 		User home directories /root Home directory for the root user
-/boot 		Bootloader files (kernel, initrd, grub)
-/lib, /lib64 	Essential shared libraries for /bin and /sbin
-/usr 		User-installed software and libraries (non-essential at boot)
-/opt 		Optional third-party software /media Mount points for external devices USB, DVD
-/mnt 		Temporarily mounted filesystems
-/run 		Runtime data (system boot time, PID files, sockets
-/root		Root user home directory (optional)
+	/ 		Root of the file system (everything starts here)
+	/bin 		Essential user binaries (commands like ls, cp)
+	/sbin 		Essential system binaries (like reboot , fsck)
+	/etc 		System-wide configuration files
+	/dev 		Device files (e.g., /dev/sda, /dev/null )
+	/proc 		Virtual filesystem providing process and kernel info
+	/sys 		Interface to kernel (devices, drivers)
+	/var 		Variable data (logs, spool files, mail)
+	/tmp 		Temporary files (cleared on reboot)
+	/home 		User home directories /root Home directory for the root user
+	/boot 		Bootloader files (kernel, initrd, grub)
+	/lib, /lib64 	Essential shared libraries for /bin and /sbin
+	/usr 		User-installed software and libraries (non-essential at boot)
+	/opt 		Optional third-party software /media Mount points for external devices USB, DVD
+	/mnt 		Temporarily mounted filesystems
+	/run 		Runtime data (system boot time, PID files, sockets
+	/root		Root user home directory (optional)
 
 **Old Layout**
 
-/bin → 	essential binaries
-/sbin → 	system tools
-/lib → 		libraries
-/usr/bin → 	additional binaries
-/usr/sbin → 	additional system tools
-/usr/lib → 	additional librarie
+	/bin → 	essential binaries
+	/sbin → 	system tools
+	/lib → 		libraries
+	/usr/bin → 	additional binaries
+	/usr/sbin → 	additional system tools
+	/usr/lib → 	additional librarie
 
 **New (Merged /usr )**
 
-/bin  → 	symlink to /usr/bin
-/sbin   →	 symlink to /usr/sbin
-/lib   → 	symlink to /usr/lib
-/usr/
-bin/
-sbin/
-lib/
+	/bin  → 	symlink to /usr/bin
+	/sbin   →	 symlink to /usr/sbin
+	/lib   → 	symlink to /usr/lib
+	/usr/
+	bin/
+	sbin/
+	lib/
 
 **Important Directories**
 
