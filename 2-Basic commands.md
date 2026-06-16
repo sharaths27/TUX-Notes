@@ -1,48 +1,39 @@
 Linux File System Hierarchy (FHS)
 The Linux File System Hierarchy (FHS) organizes files in a tree structure starting from the root directory (/), with standard subdirectories for different functions like /bin (essential commands), /etc (config files), /home (user data), /var (variable data/logs), /usr (user programs/data), and /lib (essential libraries) to ensure consistency across distributions, with key virtual file systems like /proc and /sys for kernel information
 / (Root): The top of the hierarchy; everything starts here.
+
     • /bin**:** Essential user command binaries (e.g., ls, cp).
+    
     • /sbin**:** Essential system administration binaries (e.g., fdisk, iptables).
+    
     • /etc**:** System-wide configuration files.
+
     • /home**:** User home directories (e.g., /home/user1).
+    
     • /lib**,** /lib64**:** Essential shared libraries for binaries in /bin and /sbin.
+    
     • /opt**:** Optional, third-party application software.
+    
     • /tmp**:** Temporary files, often cleared on reboot.
+    
     • /var**:** Variable data, like logs (/var/log), mail, and print queues.
+    
     • /boot**:** Files needed to boot the system (kernel, GRUB).
+    
     • /dev**:** Device files representing hardware.
+    
     • /proc**:** Virtual filesystem for process and kernel information (e.g., /proc/cpuinfo).
+    
     • /sys**:** Virtual filesystem for kernel/hardware interface.
-    • /media**,** /mnt**:** Mount points for removable media (USB drives) or temporary filesystem mounts.
+    
+    • /media**,** /mnt**:** Mount points for removable media (USB drives) or temporary filesystem mounts
+    .
     • /root**:** The root user's home directory.
+    
     • /usr**:** Secondary hierarchy for user-related programs and data
+    
 $ tree -d -L 1 /
-/
-├── bin -> usr/bin
-├── bin.usr-is-merged
-├── boot
-├── cdrom
-├── dev
-├── etc
-├── home
-├── lib -> usr/lib
-├── lib64 -> usr/lib64
-├── lib.usr-is-merged
-├── lost+found
-├── media
-├── mnt
-├── opt
-├── proc
-├── root
-├── run
-├── sbin -> usr/sbin
-├── sbin.usr-is-merged
-├── snap
-├── srv
-├── sys
-├── tmp
-├── usr
-└── var
+
 
 Absolute Path
 An absolute path is the complete and unambiguous location of a file or directory, regardless of where you are in the file system
