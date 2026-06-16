@@ -638,7 +638,8 @@ cpu  user nice system idle iowait irq softirq steal guest guest\_nice
 	CPU Usage formula:
 	usage = 100 × (delta\_total - delta\_idle) / delta\_total
 
-`This is **exactly how** top **works**.
+This is **exactly how** top **works**.
+ 
  **5 Writing SAFE sysctl Values (DO THIS CAREFULLY)**
 ### **Common SAFE Tunings**
 
