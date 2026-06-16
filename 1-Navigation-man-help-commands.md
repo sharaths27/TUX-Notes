@@ -51,7 +51,7 @@ Bash Navigation
 | Ctrl + Y | Yank (Paste last killed text) |
 | |
 | Ctrl + L | Clear screen |
-| Ctrl + _ | Undo previous editing command (Readline) |
+| Ctrl + _ | Readline undo, may not work in all terminals |
 | Ctrl + C | Abort foreground job with SIGINT |
 | Ctrl + Z | Stop a foreground job with SIGTSTP |
 	
@@ -424,6 +424,7 @@ How it works:
 Result: Command runs and is immediately removed from both session and disk history.
 
 	OR  $ echo "discrete"; history -d $((HISTCMD-1))
+	(Only affects current shell session history buffer,May not immediately remove from ~/.bash_history unless written)
 
 **Run in a Subshell With History Disabled (maximum stealth )
 (Run in a Subshell Without Recording History)**
