@@ -1,4 +1,25 @@
 
+**What is an Operating System?**
+An Operating System (OS) is software that manages hardware resources and provides services to applications.
+**Examples:**
+- Linux
+- Windows
+- macOS
+**Responsibilities:**
+- Process management
+- Memory management
+- Storage management
+- Device management
+- Security
+**Process** = Running program
+**Thread** = Execution unit inside a process
+**Example:**
+Chrome
+
+  ├── Thread 1
+  ├── Thread 2
+  └── Thread 3
+  
 **Birth of Unix (1969)**: After AT&T Bell Laboratories pulled out of the Multics project, Ken Thompson and Dennis Ritchie developed Unix. Originally written in assembly, it was rewritten in the C programming language in 1973 to make it portable across different hardware.
 
 **The Rise of Variants (1970s–1980s)**: Unix's portability led to many "flavors," including BSD (Berkeley Software Distribution) and commercial versions like SunOS (from Sun Microsystems) and IBM AIX.
@@ -6,6 +27,7 @@
 **The GNU Project (1983)**: Richard Stallman launched the GNU Project to create a completely free, Unix-like operating system. By the early 1990s, most components (compilers, shells, editors) were complete, but its kernel, GNU Hurd, was still under heavy development and not yet functional.
 
 **MINIX (1987):** Andrew S. Tanenbaum released MINIX, a small Unix-like system for educational use. It was the system Linus Torvalds used at the University of Helsinki, but its licensing restrictions and limitations on personal computer hardware frustrated him
+(MINIX source was available for study, but it was not as freely redistributable and modifiable as modern open-source software.)
 
 **The Invention of Linux (1991)**
 Frustrated by the high cost of commercial Unix (roughly $5,000 at the time) and the limitations of MINIX, Linus Torvalds began writing his own kernel.
@@ -245,6 +267,10 @@ Major Linux Distribution: Slackware, Debian, Ubuntu, Fedora, RHEL, SUSE, Arch, G
 
 ## Kernel
 
+	Linux technically refers to the kernel.
+	A complete operating system is usually:
+	Linux Kernel + GNU Tools + User Applications
+
 The kernel is the program that controls everything in a computer and lets applications talk to hardware safely and efficiently.
 
 The Linux kernel is the core, foundational program of the operating system that acts as the direct bridge between computer hardware (CPU, memory, devices) and software applications. It manages system resources, enabling apps to run, and acts as a central mediator, ensuring secure interaction between hardware and software.
@@ -427,13 +453,17 @@ A shell is a program that interprets your commands. The shell lives inside the t
 	 Executes commands
 	 Talks to the kernel
 
- Example:
-You type:
-	ls
- Shell:
-	 Understands it
-	 Calls system functions
-	 Displays result
+** Example:**
+What Happens When You Type:
+$ ls
+	1. Terminal captures input
+	2. PTS sends input
+	3. Shell parses command
+	4. Shell finds /usr/bin/ls
+	5. Kernel loads program
+	6. ls executes
+	7. Kernel returns output
+	8. Terminal displays result
 
 **Bash (Bourne Again Shell)**
 Bash is just one type of shell
@@ -453,9 +483,9 @@ Bash is just one type of shell
 
 When you type a command, the data flows through these layers in a specific order:
 
-**Terminal Emulato**r: You type mkdir photos into a window.
+**Terminal Emulator**: You type mkdir photos into a window.
 PTS/TTY: The window sends those characters through a PTS (the bridge) to the system.
-Shell (Bash): The Shell receives the characters, realizes you want to make a directory, and executes the mkdir system call.
+Shell (Bash): The Shell receives the characters, realizes you want to make a directory, Shell launches the mkdir program.The mkdir program then invokes system calls to create the directory.
 Display: The Shell sends the "Success" message back through the PTS, and the Terminal draws the text on your screen.
 
 **Summary**
@@ -511,7 +541,7 @@ The hierarchy starts at the root directory / , and everything branches from ther
 	/usr 		User-installed software and libraries (non-essential at boot)
 	/opt 		Optional third-party software /media Mount points for external devices USB, DVD
 	/mnt 		Temporarily mounted filesystems
-	/run 		Runtime data (system boot time, PID files, sockets
+	/run 		Runtime data (system boot time, PID files, sockets)
 	/root		Root user home directory (optional)
 
 **Old Layout**
@@ -543,7 +573,7 @@ Example: /proc/cpuinfo , /proc/meminfo ,
 /proc/uptime Info about devices, modules, buses, etc.
 
 /run **(Early boot runtime info)**
-PID files, systemd info, etc. Exists only in RAM, not stored on disk
+PID files, systemd info, etc. Exists only in RAM, not stored on disk (Traditional:init, Modern: systemd)
 
 /boot **(System boot files)**
 Contains  static  files  for  the  boot  loader.  This directory holds only the files which are needed during the boot process
