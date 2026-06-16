@@ -725,11 +725,11 @@ This menu is displayed by GRUB.
 The firmware understands only how to start a bootloader.
 The bootloader understands how to start Linux.
 
-Firmware
-   ↓
-Bootloader
-   ↓
-Linux Kernel
+	Firmware
+		↓ 
+	Bootloader
+		↓ 
+	Linux Kernel
 
 **GRUB Configuration**
 
