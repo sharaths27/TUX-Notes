@@ -319,6 +319,7 @@ The Linux kernel is the core, foundational program of the operating system that 
 **User processes**: These are the running programs that the kernel manages. User processes are what collectively make up user space. User processes are also known as just processes. The kernel also allows these processes and servers to communicate with each other (known as inter-process communication, or IPC).
 
 **How It Works (Flow)**
+
 		 You open an app
 		 App sends request → kernel
 		 Kernel talks to hardware
