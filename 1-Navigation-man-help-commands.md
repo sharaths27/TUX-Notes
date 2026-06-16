@@ -121,13 +121,14 @@ Search by Section
 	 Example: /size\c
 
 **Most man pages have standard sections:**
-	 NAME
-	 SYNOPSIS
-	 DESCRIPTION
-	 OPTIONS
-	 EXAMPLES
-	 FILES
-	 SEE ALSO
+
+		 NAME
+		 SYNOPSIS
+		 DESCRIPTION
+		 OPTIONS
+		 EXAMPLES
+		 FILES
+		 SEE ALSO
 
 **Jump using search**
 
@@ -285,7 +286,7 @@ In Bash, this is managed mainly by:
 	 run last command containing a word
 	 $ !?rm?
 
-** History Search**
+**History Search**
 
 	 Ctrl + r
 	 Type part of a command:
