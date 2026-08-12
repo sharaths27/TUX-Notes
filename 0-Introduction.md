@@ -279,7 +279,7 @@ The kernel is the program that controls everything in a computer and lets applic
 
 The Linux kernel is the core, foundational program of the operating system that acts as the direct bridge between computer hardware (CPU, memory, devices) and software applications. It manages system resources, enabling apps to run, and acts as a central mediator, ensuring secure interaction between hardware and software.
 
-<img width="800" height="633" alt="image" src="https://github.com/user-attachments/assets/9a795f03-00de-41a5-9dae-332487a0654c" />
+<img width="100" height="233" alt="image" src="https://github.com/user-attachments/assets/9a795f03-00de-41a5-9dae-332487a0654c" />
 
 **What the Kernel Actually Does**
 
