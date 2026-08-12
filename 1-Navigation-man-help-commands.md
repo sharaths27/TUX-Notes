@@ -534,9 +534,69 @@ Display Last Modified Timestamp of a Date File
 	!$ -> Last argument
 	Ctrl+R -> Search history
 
+
 	date -> Current date
 	date +%s -> Epoch
 	date -d -> Parse date
 	date -r -> File timestamp
 	Ctrl + T = Transpose Characters ( sl -> ls)
+	
+### Bash Special Parameters Parameter
+
+| Parameter | Description Name | Example |
+| --- | --- | --- |
+| $0 | Name of the script or shell | ./script.sh |
+| $1 | First argument | hello |
+| $2 | Second argumen | world |
+| ${10} | Tenth argument (must use braces for 10+) | ${10} |
+| $# | Number of positional arguments | 3 |
+| $* | All positional arguments as a single word | *a b c* |
+| $@ | All positional arguments as separate words | *a* *b* *c* |
+| $$ | **PID** (Process ID) of the current shell | **23541** |
+| $? | Exit status of the last command | 0, 1, **127** |
+| $! | **PID** of the last background process | **34121** |
+| $_ | Last argument of the previous command | file.txt |
+| $ - | Current shell option flags | himBH |
+
+#!/bin/bash
+echo "Script: $0"
+echo "First: $1"
+echo "Second: $2"
+echo "Count: $#"
+echo "All (*): $*"
+echo "All (@): $@"
+echo "PID: $$"
+
+##################################
+
+**History Expansion (!)**
+|Expansion| 		|Meaning|
+| --- | --- |
+|!!	|Previous command|
+|!n|Run history entry number n|
+|!-n|Run command n commands ago|
+|!string|Last command starting with string|
+|!?string?| Last command containing string|
+|!$| Last argument of previous command|
+|!*	|	All arguments of previous command|
+|^old^new| Repeat last command replacing first occurrence of old with new|
+|!string:p| Print matching command without executing|
+|!!:p |		Print previous command|
+
+
+
+**Argument Designators (:)**
+These work after a history expansion.
+
+|Expansion|		|Meaning|
+| --- | --- |
+|!!:0|		|Command name|
+|!!:1|		|First argument|
+|!!:2|		|Second argument|
+|!!:$|		|Last argument|
+|!!:*|		|All arguments|
+|!!:^|		|First argument|
+|!!:2-4|		|Arguments 2 through 4|
+|!!:2-$|		|Argument 2 to the last|
+|!!:-1|		|All arguments except the last|
 
